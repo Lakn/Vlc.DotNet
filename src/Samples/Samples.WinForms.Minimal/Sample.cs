@@ -11,6 +11,19 @@ namespace Samples.WinForms.Minimal
         {
             InitializeComponent();
             vlcControl.Play(new Uri("http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_surround-fix.avi"));
+            vlcControl.Pause();
+            if (vlcControl.Length>0)
+            {
+                vlcControl.Position = (float)2000/(float)vlcControl.Length;
+                vlcControl.Invalidate();
+                if (vlcControl.TakeSnapeShot(new FileInfo("Test.png"))
+                    MessageBox.Show("Snapshot Success");
+                else
+                    MessageBox.Show("Snapshot failed on the first time.");
+                vlcControl.Play();
+            }
+            else
+                vlcControl.Play(); 
         }
 
         /// <summary>
