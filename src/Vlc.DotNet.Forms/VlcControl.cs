@@ -201,9 +201,9 @@ namespace Vlc.DotNet.Forms
         /// Takes a snapshot of the currently playing video and saves it to the given file
         /// </summary>
         /// <param name="fileName">The name of the file to be written</param>
-        public void TakeSnapshot(string fileName)
+        public bool TakeSnapshot(string fileName)
         {
-            this.TakeSnapshot(fileName, 0, 0);
+            return (this.TakeSnapshot(fileName, 0, 0)==VLC_SUCCESS);
         }
 
         /// <summary>
@@ -213,9 +213,9 @@ namespace Vlc.DotNet.Forms
         /// <param name="fileName">The name of the file to be written</param>
         /// <param name="width">The width of the snapshot (0 means auto)</param>
         /// <param name="height">The height of the snapshot (0 means auto)</param>
-        public void TakeSnapshot(string fileName, uint width, uint height)
+        public bool TakeSnapshot(string fileName, uint width, uint height)
         {
-            this.TakeSnapshot(new FileInfo(fileName), 0, 0);
+            return (this.TakeSnapshot(new FileInfo(fileName), 0, 0)==VLC_SUCCESS;
         }
 
 
@@ -223,9 +223,9 @@ namespace Vlc.DotNet.Forms
         /// Takes a snapshot of the currently playing video and saves it to the given file
         /// </summary>
         /// <param name="file">The file to be written</param>
-        public void TakeSnapshot(FileInfo file)
+        public bool TakeSnapshot(FileInfo file)
         {
-            this.TakeSnapshot(file, 0, 0);
+            return (this.TakeSnapshot(file, 0, 0)==VLC_SUCCESS);
         }
 
 
